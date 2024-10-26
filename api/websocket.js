@@ -1,4 +1,5 @@
 // api/websocket.js
+// danis bhaiii
 import { Server } from 'ws';
 
 const videoDuration = 596; // Duration of the video in seconds
