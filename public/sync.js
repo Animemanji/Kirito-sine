@@ -5,12 +5,11 @@ const socket = new WebSocket(`ws://${window.location.host}/api/websocket`);
 socket.onmessage = (event) => {
     const data = JSON.parse(event.data);
     if (data.playbackTime !== undefined) {
-        video.currentTime = data.playbackTime; // Sync video time
+        video.currentTime = data.playbackTime; // Sync to server playback time
+        if (video.paused) video.play();        // Ensure video is playing
     }
 };
 
-video.addEventListener('timeupdate', () => {
-    const currentTime = video.currentTime;
-    // Send current time to the server
-    socket.send(JSON.stringify({ playbackTime: currentTime }));
-});
+// Prevent user controls
+video.controls = false;
+video.addEventListener('play', () => video.pause());
