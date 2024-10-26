@@ -1,0 +1,11 @@
+{
+  "name": "my-websocket-app",
+  "version": "1.0.0",
+  "main": "api/websocket.js",
+  "dependencies": {
+    "ws": "^8.0.0"
+  },
+  "scripts": {
+    "dev": "vercel dev"
+  }
+}
